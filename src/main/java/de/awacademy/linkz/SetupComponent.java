@@ -15,16 +15,17 @@ import java.util.Random;
 public class SetupComponent {
 
     private final LinkRepository linkRepository;
+    private final UserService userService;
 
     @Autowired
-    public SetupComponent(LinkRepository linkRepository) {
+    public SetupComponent(LinkRepository linkRepository, UserService userService) {
         this.linkRepository = linkRepository;
+        this.userService = userService;
     }
 
     @EventListener
     @Transactional
     public void handleApplicationReady(ApplicationReadyEvent event) {
-        UserService userService = null;
         if (!userService.usernameExists("test")) {
             userService.register("test","test");
         }
