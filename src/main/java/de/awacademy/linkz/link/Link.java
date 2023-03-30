@@ -4,11 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
+@Entity // Zeigt an, dass Klasse als DB-Entität verwendet wird
 public class Link {
 
-    @Id
-    @GeneratedValue
+    @Id // Attribut ist der Primärschlüssel
+    @GeneratedValue // Attribut wird generiert (ohne Angabe = Standardsequenzgenerator)
     private long id;
 
     private String title;
@@ -19,6 +19,7 @@ public class Link {
 
     public Link() {
         // Default constructor for JPA
+        // Leerer und öffentlicher Konstruktor wird für jede DB-Entität benötigt!
     }
 
     public Link(String title, String url) {
