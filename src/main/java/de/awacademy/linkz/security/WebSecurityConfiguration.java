@@ -23,8 +23,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .antMatchers("/","/register","/login").permitAll()
                     .anyRequest().authenticated()
                     .and()
-                .formLogin().and()
-                .logout().logoutSuccessUrl("/").and()
+                .formLogin()
+                    .and()
+                .logout().logoutSuccessUrl("/")
+                    .and()
                 .httpBasic();
     }
 
